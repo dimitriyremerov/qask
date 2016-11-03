@@ -1,0 +1,13 @@
+{
+  "name": "QASK Personal helper tool",
+  "license": "UNLICENSED",
+  "type": "project",
+  "require": {
+    "silex/silex": "~2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Qask\\": "src/"
+    }
+  }
+}
