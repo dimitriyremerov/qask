@@ -10,3 +10,6 @@ if (preg_match('#^/visa#', $requestUri)) {
 	include dirname(__DIR__) . '/modules/visa.php';
 }
 
+if (preg_match('#^/timezone#', $requestUri)) {
+    include dirname(__DIR__) . '/modules/timezone.php';
+}
