@@ -53,6 +53,7 @@ $targetResult = null;
 $compareResult = null;
 $timeSpec = null;
 $compare = null;
+$target = null;
 if (preg_match('#^/timezone/(.*)$#', $requestUri, $matches)) {
     $params = array_map('urldecode', array_filter(explode('/', $matches[1])));
     $target = $params[0] ?? null;
@@ -112,6 +113,7 @@ if (preg_match('#^/timezone/(.*)$#', $requestUri, $matches)) {
 if ($targetResult) {
 ?>
     <h2>Results: </h2>
+    <h3><?=$target?></h3>
     <div>
         <p><b>Difference with GMT: </b><?=$targetResult['tz']?> hour(s)</p>
         <p><b>Time <?=$timeSpec?>: </b><?=$targetResult['time']?></p>
