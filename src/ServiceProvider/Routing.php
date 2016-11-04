@@ -3,6 +3,7 @@ namespace Qask\ServiceProvider;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
+use Qask\Controller\SecretFlyingController;
 use Silex\Api\BootableProviderInterface;
 use Silex\Application;
 use Silex\Provider\ServiceControllerServiceProvider;
@@ -34,6 +35,8 @@ class Routing implements ServiceProviderInterface, BootableProviderInterface
      */
     public function boot(Application $app)
     {
-        $app->get();
+        $app->get('/secretflying.rss', function (Application $app) {
+            $controller = new SecretFlyingController();
+        });
     }
 }
