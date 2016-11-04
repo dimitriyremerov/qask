@@ -114,14 +114,14 @@ if ($targetResult) {
     <h2>Results: </h2>
     <div>
         <p><b>Difference with GMT: </b><?=$targetResult['tz']?> hour(s)</p>
-        <p><b>Time <?=$timeSpec?>: <?=$targetResult['time']?></b></p>
+        <p><b>Time <?=$timeSpec?>: </b><?=$targetResult['time']?></p>
     </div>
 <?php
     if ($compareResult) {
 ?>
         <div>
             <p><b>Difference with <?=$compare?>: </b><?=$compareResult['diff']?> hour(s)</p>
-            <p><b>Time <?=$timeSpec?>: <?=$compareResult['time']?></b></p>
+            <p><b>Time <?=$timeSpec?>: </b><?=$compareResult['time']?></p>
         </div>
 <?php
     }
