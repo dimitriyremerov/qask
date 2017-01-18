@@ -1,12 +1,13 @@
 <?php
+use Silex\Application;
 
-$app = new \Silex\Application();
+$app = new Application();
 
 $requestUri = $_SERVER['REQUEST_URI'];
 
 $app->get(
     '/secretflying.rss',
-    function (\Silex\Application $app) {
+    function (Application $app) {
         //TODO Implement
     }
 );

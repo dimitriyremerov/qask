@@ -14,4 +14,3 @@ start:
 stop:
 	docker stop $(CONTAINER_NAME) || true
 	docker rm $(CONTAINER_NAME) || true
-
