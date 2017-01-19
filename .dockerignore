@@ -3,3 +3,4 @@ Makefile
 .dockerignore
 .git
 .idea
+vendor
