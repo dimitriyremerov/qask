@@ -4,3 +4,4 @@ Makefile
 .git
 .idea
 vendor
+manager
