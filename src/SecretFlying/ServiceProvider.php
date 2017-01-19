@@ -1,14 +1,13 @@
 <?php
-namespace Qask\ServiceProvider;
+namespace Qask\SecretFlying;
 
+use GuzzleHttp\Client;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use Qask\Controller\SecretFlyingController;
 use Silex\Api\BootableProviderInterface;
 use Silex\Application;
-use Silex\Provider\ServiceControllerServiceProvider;
 
-class Routing implements ServiceProviderInterface, BootableProviderInterface
+class ServiceProvider implements ServiceProviderInterface, BootableProviderInterface
 {
 
     /**
@@ -21,7 +20,12 @@ class Routing implements ServiceProviderInterface, BootableProviderInterface
      */
     public function register(Container $pimple)
     {
-        $pimple->register(new ServiceControllerServiceProvider());
+        $pimple['secretFlying.guzzleClient'] = function (Application $app) {
+            return new Client();
+        };
+        $pimple['secretFlying'] = function (Application $app) {
+            return new Controller($app['secretFlying.guzzleClient']);
+        };
     }
 
     /**
@@ -35,8 +39,6 @@ class Routing implements ServiceProviderInterface, BootableProviderInterface
      */
     public function boot(Application $app)
     {
-        $app->get('/secretflying.rss', function (Application $app) {
-            $controller = new SecretFlyingController();
-        });
+        $app->get('/secretflying.rss', [$app['secretFlying'], 'getSecretFlyingRss']);
     }
 }
